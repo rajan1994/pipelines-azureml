@@ -33,7 +33,7 @@ In case you want to leverage an existing ML workspace, you can customize it in t
  - ml-ws: 'aml-demo'               # AML Workspace name
  - ml-rg: 'aml-demo'               # AML resource Group name
  - ml-ct: 'cpu-cluster-1'          # AML Compute cluster name
- - ml-path: 'models/bank'      # Model directory path in repo
+ - ml-path: 'models/bank-fixed-deposit'      # Model directory path in repo
  - ml-exp: 'exp-test'              # Experiment name
  - ml-model-name: 'bank-model' # Model name
  - ml-aks-name: 'aks-prod'         # AKS cluster name
@@ -46,7 +46,7 @@ You can also manually emulate the [example pipeline](pipelines/bank-train-and-de
 ```bash
 az extension add -n azure-cli-ml
 
-cd models/bank/
+cd models/bank-fixed-deposit
 az ml folder attach -w $(ml-ws) -g $(ml-rg)
 az ml computetarget create amlcompute -n cpu-cluster-1 --vm-size STANDARD_D2_V2 --max-nodes 1
 az ml run submit-script -c config/train --ct cpu-cluster-1 -e exp-test -t run.json train.py

@@ -1,4 +1,4 @@
-# Diabetes example model
+# BankFixed-Deposit example model
 
 ## Training this model locally
 
@@ -6,7 +6,7 @@ Create local Conda environement:
 
 ```cli
 conda env create -f config/train-conda.yml
-conda activate diabetes-training-env
+conda activate bank-training-env
 ```
 
 Train the model:
@@ -38,5 +38,5 @@ az ml computetarget create amlcompute -n cpu-cluster --vm-size STANDARD_D2_V2 --
 Send the training job to the remote compute target:
 
 ```cli
-az ml run submit-script -c config/train --ct cpu-cluster -e diabetes-train-remote -t run.json train.py
+az ml run submit-script -c config/train --ct cpu-cluster -e bank-train-remote -t run.json train.py
 ```

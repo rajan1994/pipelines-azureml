@@ -26,7 +26,7 @@ output_sample = np.array([0])
 def run(data):
     try:
         cols_when_model_builds = model.get_booster().feature_names
-        predict_data = pd.DataFrame(input_sample,columns=cols_when_model_builds)
+        predict_data = pd.DataFrame(data,columns=cols_when_model_builds)
         result = model.predict(predict_data)
         # you can return any datatype as long as it is JSON-serializable
         return result.tolist()

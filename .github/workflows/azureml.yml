@@ -3,7 +3,7 @@ name: Python application
 on: [push]
 
 env:
-  ml-ws-connection: 'modeldeployment' # Workspace Service Connection name
+  ml-ws-connection: 'modeldeployment1' # Workspace Service Connection name
   ml-ws: 'MLWorkspace' # AML Workspace name
   ml-rg: 'MLDeployment' # AML resource Group name
   ml-ct: 'cpu-cluster-1' # AML Compute cluster name

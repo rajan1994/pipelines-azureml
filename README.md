@@ -48,8 +48,8 @@ az extension add -n azure-cli-ml
 
 cd models/diabetes/
 az ml folder attach -w $(ml-ws) -g $(ml-rg)
-az ml computetarget create amlcompute -n $(ml-ct) --vm-size STANDARD_D2_V2 --max-nodes 1
-az ml run submit-script -c config/train --ct $(ml-ct) -e $(ml-exp) -t run.json train.py
+az ml computetarget create amlcompute -n cpu-cluster-1 --vm-size STANDARD_D2_V2 --max-nodes 1
+az ml run submit-script -c config/train --ct cpu-cluster-1 -e exp-test -t run.json train.py
 az ml model register -n $(ml-model-name) -f run.json --asset-path outputs/ridge_0.95.pkl -t model.json
 az ml model deploy -n diabetes-qa-aci -f model.json --ic config/inference-config.yml --dc config/deployment-config-aci.yml --overwrite
 az ml computetarget create aks --name $(ml-aks-name) --cluster-purpose DevTest

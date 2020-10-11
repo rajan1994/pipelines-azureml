@@ -5,19 +5,24 @@ import pickle
 import os
 import numpy as np
 import pandas as pd
-import lightgbm as lgb
+import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import f1_score
 from azureml.core.run import Run
 
 os.makedirs('./outputs', exist_ok=True)
 
-df = pd.read_csv('/dataset/bankdata.csv')
+script_dir = os.getcwd()
+file = 'bankdata.csv'
+df = pd.read_csv(os.path.normcase(os.path.join(script_dir,'dataset', file)))
+
+run = Run.get_context()
+run.log('csv path is:  ',df)
+
 TARGET_COL = 'term_deposit_subscribed'
 features = [c for c in df.columns if c not in [TARGET_COL]]
 X = df[features]
 y = df[TARGET_COL]
-run = Run.get_context()
 
 train, test = train_test_split(df, test_size=0.2, random_state = 1, stratify = df[TARGET_COL])
 X_train, X_test = train[features], test[features]

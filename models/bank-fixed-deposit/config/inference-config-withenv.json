@@ -27,7 +27,7 @@
                             "azureml-defaults",
                             "numpy",
                             "scikit-learn",
-                            "lightgbm==2.2.3",
+                            "xgboost",
                             "inference-schema[numpy-support]"
                         ]
                     }

@@ -7,8 +7,6 @@ from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 from utils import mylib
 
-
-
 def init():
     global model
     model_path = Model.get_model_path('bank-model')
@@ -19,8 +17,8 @@ def init():
     # For demonstration purposes only
     print(mylib.get_alphas())
 
-input_sample = np.array([[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]])
-output_sample = np.array([3726.995])
+input_sample = np.array([[33,2,5,76,1,0,0,2,0,0,0,0,2]])
+output_sample = np.array([0])
 
 @input_schema('data', NumpyParameterType(input_sample))
 @output_schema(NumpyParameterType(output_sample))

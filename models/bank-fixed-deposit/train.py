@@ -32,7 +32,7 @@ data = {"train": {"X": X_train, "y": y_train},
         "test": {"X": X_test, "y": y_test}}
 
 # list of numbers from 0.0 to 1.0 with a 0.05 interval
-model= lgb.XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
+model= xgb.XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
               colsample_bynode=1, colsample_bytree=1, gamma=0,
               learning_rate=0.1, max_delta_step=0, max_depth=10,
               min_child_weight=6, missing=None, n_estimators=200, n_jobs=1,

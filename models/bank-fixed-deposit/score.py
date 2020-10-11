@@ -5,6 +5,7 @@ from sklearn.linear_model import Ridge
 from azureml.core.model import Model
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
+import pandas as pd
 from utils import mylib
 
 def init():
@@ -24,7 +25,9 @@ output_sample = np.array([0])
 @output_schema(NumpyParameterType(output_sample))
 def run(data):
     try:
-        result = model.predict(data)
+        cols_when_model_builds = model.get_booster().feature_names
+        predict_data = pd.DataFrame(input_sample,columns=cols_when_model_builds)
+        result = model.predict(predict_data)
         # you can return any datatype as long as it is JSON-serializable
         return result.tolist()
     except Exception as e:

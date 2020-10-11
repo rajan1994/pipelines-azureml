@@ -38,7 +38,7 @@ for alpha in alphas:
     run.log('mse', mse)
 
     # Save model in the outputs folder so it automatically get uploaded when running on AML Compute
-    model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
+    model_file_name = 'bank_fixed_deposit.pkl'
     with open(os.path.join('./outputs/', model_file_name), 'wb') as file:
         pickle.dump(reg, file)
 

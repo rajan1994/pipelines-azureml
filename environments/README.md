@@ -1,1 +1,1 @@
-# Azure ML Environment Examples
+# Azure ML Curated Environments

@@ -11,7 +11,7 @@ env:
   ml-exp: 'exp-test' # Experiment name
   ml-model-name: 'bank-model' # Model name
   ml-aks-name: 'aks-prod' # AKS cluster name
-  ml-model-path: outputs/bank_0.90.pkl 
+  ml-model-path: outputs/bank_fixed_deposit.pkl 
 jobs:
   build:
     runs-on: ubuntu-latest

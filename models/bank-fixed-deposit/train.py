@@ -36,7 +36,7 @@ model= lgb.XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
               silent=None, subsample=1, verbosity=1)
 model.fit(data["train"]["X"], data["train"]["y"])
 y_pred=model.predict(data["test"]["X"])
-run.log('f1_score:',f1_score(data["test"]["y"]))
+run.log('f1_score:',f1_score(y_pred, data["test"]["y"]))
 run.log('Predicted Value:  ',y_pred)
 # Save model in the outputs folder so it automatically get uploaded when running on AML Compute
 model_file_name = 'bank_fixed_deposit.pkl'
